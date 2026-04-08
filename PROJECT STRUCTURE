@@ -1,0 +1,24 @@
+solo-wrestling-protocol/
+│
+├── app/
+│   ├── page.tsx
+│   ├── layout.tsx
+│
+├── components/
+│   ├── WorkoutCard.tsx
+│   ├── ExerciseBlock.tsx
+│   ├── ProgressBar.tsx
+│
+├── lib/
+│   ├── protocol.ts
+│   ├── progression.ts
+│   ├── storage.ts
+│
+├── styles/
+│   └── globals.css
+│
+├── public/
+│   └── exercises/ (GIFs go here)
+│
+├── tailwind.config.js
+├── package.json
