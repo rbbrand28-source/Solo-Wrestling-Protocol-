@@ -1,23 +1,21 @@
 import { getPhase, scale } from "./progression";
 
-const exercises = {
-  penetration: "/exercises/penetration.gif",
-  sprawl: "/exercises/sprawl.gif",
-  hipHeist: "/exercises/hipheist.gif",
-  sitOut: "/exercises/sitout.gif",
-  bridge: "/exercises/bridge.gif",
-  shadow: "/exercises/shadow.gif"
-};
-
 export const generateDay = (day: number) => {
   const phase = getPhase(day);
+
+  const intensity = day * 0.3;
 
   return {
     warmup: [
       {
         name: "Joint Mobility Flow",
         reps: "5 min",
-        cue: "full range controlled"
+        steps: [
+          "Rotate all joints slowly",
+          "Increase range gradually",
+          "Stay controlled"
+        ],
+        breath: "steady breathing"
       }
     ],
 
@@ -25,14 +23,26 @@ export const generateDay = (day: number) => {
       {
         name: "Penetration Step",
         reps: scale(10, day),
-        gif: exercises.penetration,
-        cue: "drive knee forward, chest upright"
+        gif: "/exercises/penetration.gif",
+        steps: [
+          "Step forward explosively",
+          "Drop level",
+          "Keep chest upright"
+        ],
+        breath: "inhale down, exhale drive",
+        mistakes: "leaning forward"
       },
       {
         name: "Sprawl",
         reps: scale(8, day),
-        gif: exercises.sprawl,
-        cue: "hips slam down fast"
+        gif: "/exercises/sprawl.gif",
+        steps: [
+          "Kick legs back",
+          "Drop hips hard",
+          "Keep head up"
+        ],
+        breath: "sharp exhale on drop",
+        mistakes: "slow hip drop"
       }
     ],
 
@@ -40,12 +50,20 @@ export const generateDay = (day: number) => {
       {
         name: "Push-ups",
         reps: scale(15, day),
-        cue: "tight core, full depth"
+        steps: [
+          "Full depth",
+          "Core tight",
+          "Explode up"
+        ]
       },
       {
         name: "Squats",
         reps: scale(20, day),
-        cue: "explode up"
+        steps: [
+          "Sit back",
+          "Drive knees out",
+          "Explode up"
+        ]
       }
     ],
 
@@ -53,8 +71,13 @@ export const generateDay = (day: number) => {
       {
         name: "Bridge Hold",
         reps: `${20 + day}s`,
-        gif: exercises.bridge,
-        cue: "push through neck + feet"
+        gif: "/exercises/bridge.gif",
+        steps: [
+          "Push through neck",
+          "Lift hips high",
+          "Hold steady"
+        ],
+        mistakes: "collapsing neck"
       }
     ],
 
@@ -62,8 +85,12 @@ export const generateDay = (day: number) => {
       {
         name: "Shadow Wrestling",
         reps: `${2 + Math.floor(day / 10)} min`,
-        gif: exercises.shadow,
-        cue: "flow continuously"
+        gif: "/exercises/shadow.gif",
+        steps: [
+          "Chain movements",
+          "Stay low",
+          "Keep flow continuous"
+        ]
       }
     ]
   };
